@@ -1,0 +1,857 @@
+// Dynamic AGS Palette (Black & Red or Matugen Material You)
+@import "colors-active.scss";
+
+// Global Typography & Base Settings
+* {
+  font-family: "Geist", "Inter", "JetBrainsMono Nerd Font", sans-serif;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+// ----------------------------------------------------
+// 1. TOP BAR (window.Bar)
+// ----------------------------------------------------
+window.Bar {
+  background: transparent;
+  color: $fg;
+  font-size: 13px;
+
+  centerbox.bar-centerbox {
+    margin: 8px 16px;
+    padding: 0;
+  }
+
+  box.bar-start-box, box.bar-end-box {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Individual Modular Pills
+  .bar-pill-btn, box.bar-pill-container {
+    background: rgba(5, 5, 5, 0.92);
+    border: 1px solid $border-subtle;
+    border-radius: 14px;
+    margin: 0 4px;
+    padding: 4px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 45, 68, 0.1);
+    transition: all 180ms ease-in-out;
+
+    &:hover {
+      background: rgba(255, 45, 68, 0.15);
+      border-color: $accent;
+    }
+  }
+
+  label.bar-btn-icon {
+    font-size: 16px;
+  }
+
+  // Workspaces Module
+  box.Workspaces {
+    padding: 2px 4px;
+
+    button.workspace-btn {
+      background: transparent;
+      color: $fg-dim;
+      border-radius: 8px;
+      margin: 2px 3px;
+      padding: 3px 10px;
+      min-width: 24px;
+      transition: all 150ms ease-in-out;
+
+      &:hover {
+        background: $accent-dim;
+        color: $accent;
+      }
+
+      &.focused {
+        background: $accent;
+        color: #ffffff;
+        font-weight: bold;
+        box-shadow: 0 0 14px rgba(255, 45, 68, 0.6);
+      }
+    }
+  }
+
+  // Clock Module
+  box.Clock {
+    font-weight: 600;
+    color: $fg;
+    padding: 4px 16px;
+  }
+
+  // Battery Module
+  box.Battery {
+    font-weight: 500;
+    color: $fg;
+  }
+
+  // RAM Guardian Module
+  box.Ram {
+    font-weight: 600;
+
+    &.Ram-warn { color: $warn; border-color: $warn; }
+    &.Ram-alert { color: $alert; border-color: $alert; }
+    &.Ram-emergency { color: $emergency; border-color: $emergency; background: rgba(255, 45, 68, 0.25); }
+  }
+}
+
+// ----------------------------------------------------
+// ----------------------------------------------------
+// 2. UBUNTU LEFT DOCK PANEL (window.UbuntuLeftDockWindow)
+// ----------------------------------------------------
+window.UbuntuLeftDockWindow {
+  background: transparent;
+
+  box.ubuntu-left-dock {
+    background: rgba(12, 12, 16, 0.92);
+    border-right: 1px solid rgba(255, 45, 68, 0.35);
+    padding: 12px 6px;
+    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 45, 68, 0.15);
+  }
+
+  button.dock-item {
+    background: transparent;
+    border-radius: 14px;
+    margin: 4px 2px;
+    padding: 6px;
+    min-width: 48px;
+    min-height: 48px;
+    transition: all 160ms ease-in-out;
+
+    icon.dock-app-icon, image.dock-app-icon {
+      font-size: 32px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+
+    &:hover {
+      background: rgba(255, 45, 68, 0.22);
+      box-shadow: 0 0 14px rgba(255, 45, 68, 0.4);
+    }
+
+    &:active {
+      background: rgba(255, 45, 68, 0.45);
+    }
+  }
+
+  box.glass-separator-h {
+    min-width: 32px;
+    min-height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 45, 68, 0.4), transparent);
+    margin: 8px 0;
+  }
+
+  box.active-app-box {
+  }
+
+  box.active-dot-indicator-left {
+    min-width: 4px;
+    min-height: 20px;
+    background: #FF2D44;
+    border-radius: 4px;
+    margin-right: 6px;
+    box-shadow: 0 0 8px #FF2D44;
+  }
+}
+
+// ----------------------------------------------------
+// 3. APPLICATION LAUNCHER (window.Launcher)
+// ----------------------------------------------------
+window.Launcher {
+  background: rgba(5, 5, 5, 0.6);
+
+  box.launcher-card-container {
+    background: rgba(5, 5, 5, 0.94);
+    border: 1px solid $border-subtle;
+    border-radius: 18px;
+    padding: 24px;
+    min-width: 540px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 68, 0.15);
+  }
+
+  box.launcher-header {
+    margin-bottom: 16px;
+
+    label.launcher-icon-badge {
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    label.launcher-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: $accent;
+    }
+  }
+
+  entry.launcher-search-entry {
+    background: #0d0d10;
+    color: $fg;
+    border: 1px solid $border-subtle;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    margin-bottom: 16px;
+
+    &:focus {
+      border-color: $accent;
+      box-shadow: 0 0 12px rgba(255, 45, 68, 0.3);
+    }
+  }
+
+  box.launcher-list {
+    margin-top: 4px;
+  }
+
+  button.app-card-item {
+    background: transparent;
+    border-radius: 14px;
+    margin: 3px 0;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      background: rgba(255, 45, 68, 0.12);
+      border-color: rgba(255, 45, 68, 0.4);
+    }
+
+    box.app-card-inner {
+      icon.app-card-icon {
+        min-width: 32px;
+        min-height: 32px;
+        margin-right: 14px;
+      }
+
+      label.app-card-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: $fg;
+      }
+
+      label.app-card-desc {
+        font-size: 12px;
+        color: $fg-dim;
+        margin-top: 2px;
+      }
+
+      label.app-card-arrow {
+        font-size: 14px;
+        color: $accent;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// 4. COMMAND PALETTE (window.CommandPalette)
+// ----------------------------------------------------
+window.CommandPalette {
+  background: rgba(5, 5, 5, 0.6);
+
+  box.palette-card-container {
+    background: rgba(5, 5, 5, 0.94);
+    border: 1px solid $border-subtle;
+    border-radius: 18px;
+    padding: 24px;
+    min-width: 520px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 68, 0.15);
+  }
+
+  box.palette-header {
+    margin-bottom: 16px;
+
+    label.palette-icon-badge {
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    label.palette-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: $accent;
+    }
+  }
+
+  entry.palette-search-entry {
+    background: #0d0d10;
+    color: $fg;
+    border: 1px solid $border-subtle;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    margin-bottom: 12px;
+
+    &:focus {
+      border-color: $accent;
+      box-shadow: 0 0 12px rgba(255, 45, 68, 0.3);
+    }
+  }
+
+  box.palette-status-card {
+    background: rgba(255, 45, 68, 0.1);
+    border: 1px solid $border-subtle;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 8px;
+
+    label.palette-status-text {
+      font-size: 13px;
+      color: $fg;
+    }
+  }
+}
+
+// ----------------------------------------------------
+// 5. AI ASSISTANT WIDGET (window.AiWidget)
+// ----------------------------------------------------
+window.AiWidget {
+  background: rgba(5, 5, 5, 0.6);
+
+  box.ai-card-container {
+    background: rgba(5, 5, 5, 0.94);
+    border: 1px solid $border-subtle;
+    border-radius: 18px;
+    padding: 24px;
+    min-width: 560px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 68, 0.15);
+  }
+
+  box.ai-header {
+    margin-bottom: 16px;
+
+    label.ai-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: $accent;
+    }
+
+    button.ai-close-btn {
+      background: transparent;
+      color: $fg-dim;
+      border-radius: 8px;
+      padding: 4px 8px;
+
+      &:hover {
+        background: $emergency;
+        color: #ffffff;
+      }
+    }
+  }
+
+  scrollable.ai-chat-scroll {
+    min-height: 220px;
+    margin-bottom: 16px;
+  }
+
+  box.chat-bubble-card {
+    border-radius: 14px;
+    padding: 10px 14px;
+    margin: 6px 0;
+
+    label.chat-role-label {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    label.chat-text-label {
+      font-size: 13px;
+    }
+
+
+    &.user {
+      background: rgba(255, 45, 68, 0.18);
+      border: 1px solid rgba(255, 45, 68, 0.35);
+      color: $fg;
+
+      label.chat-role-label { color: $accent; }
+    }
+
+    &.ai {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid $accent;
+      color: $fg;
+      font-family: "JetBrainsMono Nerd Font Mono", monospace;
+
+      label.chat-role-label { color: #ffffff; }
+    }
+  }
+
+  box.ai-typing-indicator {
+    padding: 6px 12px;
+    margin-bottom: 8px;
+
+    label.typing-text {
+      font-size: 12px;
+      color: $accent;
+      font-style: italic;
+    }
+  }
+
+  box.ai-input-row {
+    entry.ai-search-entry {
+      background: #0d0d10;
+      color: $fg;
+      border: 1px solid $border-subtle;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 13px;
+
+      &:focus {
+        border-color: $accent;
+      }
+    }
+
+    button.ai-send-btn {
+      background: $accent;
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 10px 16px;
+      margin-left: 8px;
+
+      &:hover {
+        background: #ff535a;
+        box-shadow: 0 0 14px rgba(255, 45, 68, 0.5);
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// 6. CHEATSHEET GRID (window.Cheatsheet)
+// ----------------------------------------------------
+window.Cheatsheet {
+  background: rgba(5, 5, 5, 0.6);
+
+  box.cheatsheet-card-container {
+    background: rgba(5, 5, 5, 0.94);
+    border: 1px solid $border-subtle;
+    border-radius: 18px;
+    padding: 26px;
+    min-width: 680px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 68, 0.15);
+  }
+
+  box.cheatsheet-header {
+    margin-bottom: 20px;
+
+    label.cheatsheet-icon-badge {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    label.cheatsheet-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: $accent;
+    }
+
+    button.cheatsheet-close-btn {
+      background: transparent;
+      color: $fg-dim;
+      border-radius: 8px;
+      padding: 4px 8px;
+
+      &:hover {
+        background: $emergency;
+        color: #ffffff;
+      }
+    }
+  }
+
+  box.cheatsheet-category-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 45, 68, 0.2);
+    border-radius: 14px;
+    padding: 14px;
+    margin: 4px;
+
+    box.category-header {
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 45, 68, 0.15);
+      padding-bottom: 6px;
+
+      label.category-icon {
+        font-size: 16px;
+        margin-right: 8px;
+      }
+
+      label.category-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+
+    box.bind-row {
+      margin: 3px 0;
+
+      label.key-badge {
+        background: rgba(255, 45, 68, 0.16);
+        color: $accent;
+        border: 1px solid rgba(255, 45, 68, 0.35);
+        border-radius: 6px;
+        padding: 2px 7px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      label.bind-desc {
+        font-size: 12px;
+        color: $fg-dim;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// 7. CLIPBOARD HISTORY (window.ClipboardHistory)
+// ----------------------------------------------------
+window.ClipboardHistory {
+  background: rgba(5, 5, 5, 0.6);
+
+  box.clipboard-content {
+    background: rgba(5, 5, 5, 0.94);
+    border: 1px solid $border-subtle;
+    border-radius: 18px;
+    padding: 24px;
+    min-width: 520px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 68, 0.15);
+
+    label.clipboard-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: $accent;
+      margin-bottom: 12px;
+    }
+
+    entry {
+      background: #0d0d10;
+      color: $fg;
+      border: 1px solid $border-subtle;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 14px;
+      margin-bottom: 12px;
+
+      &:focus {
+        border-color: $accent;
+      }
+    }
+  }
+
+  box.clipboard-row {
+    button {
+      background: transparent;
+      color: $fg;
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin: 2px 0;
+
+      &:hover {
+        background: rgba(255, 45, 68, 0.15);
+      }
+    }
+
+    button.clipboard-delete {
+      min-width: 10px;
+      padding: 8px;
+      color: $fg-dim;
+
+      &:hover {
+        background: $emergency;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// 3. FULLSCREEN UBUNTU APPLICATION LAUNCHPAD (window.Launcher)
+// ----------------------------------------------------
+window.Launcher {
+  background: rgba(5, 5, 8, 0.88);
+
+  box.launcher-fullscreen-container {
+    padding: 50px 80px;
+
+    box.launcher-top-bar {
+      margin-bottom: 30px;
+
+      entry.launcher-search-entry {
+        background: rgba(18, 18, 24, 0.95);
+        color: #ffffff;
+        border: 2px solid rgba(255, 45, 68, 0.5);
+        border-radius: 16px;
+        padding: 14px 24px;
+        font-size: 16px;
+        min-width: 480px;
+        box-shadow: 0 0 20px rgba(255, 45, 68, 0.2);
+
+        &:focus {
+          border-color: #FF2D44;
+          box-shadow: 0 0 28px rgba(255, 45, 68, 0.5);
+        }
+      }
+
+      button.launcher-close-btn {
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        border-radius: 12px;
+        padding: 8px 16px;
+        margin-left: 16px;
+        font-size: 16px;
+
+        &:hover {
+          background: #FF2D44;
+        }
+      }
+    }
+
+    button.app-grid-tile {
+      background: rgba(28, 28, 38, 0.75);
+      border: 1px solid rgba(255, 45, 68, 0.35);
+      border-radius: 20px;
+      padding: 16px 12px;
+      min-width: 124px;
+      min-height: 124px;
+      transition: all 180ms ease-in-out;
+
+      &:hover {
+        background: rgba(255, 45, 68, 0.3);
+        border-color: #FF2D44;
+        box-shadow: 0 0 24px rgba(255, 45, 68, 0.6);
+      }
+
+      icon.app-grid-icon, image.app-grid-icon {
+        font-size: 64px;
+        min-width: 64px;
+        min-height: 64px;
+        margin-bottom: 10px;
+      }
+
+      label.app-grid-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// DOCK REAL ICONS
+// ----------------------------------------------------
+window.DockWindow {
+  icon.dock-app-icon, image.dock-app-icon {
+    font-size: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+}
+
+button.palette-mic-btn, button.ai-mic-btn {
+  background: rgba(255, 45, 68, 0.16);
+  border: 1px solid rgba(255, 45, 68, 0.4);
+  border-radius: 12px;
+  padding: 8px 14px;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    background: $accent;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(255, 45, 68, 0.5);
+  }
+}
+
+// ----------------------------------------------------
+// UBUNTU QUICK SETTINGS CONTROL CENTER (PREMIUM)
+// ----------------------------------------------------
+window.QuickSettingsWindow {
+  background: transparent;
+
+  box.quick-settings-card {
+    background: rgba(10, 10, 16, 0.95);
+    border: 1px solid rgba(255, 45, 68, 0.4);
+    border-radius: 24px;
+    margin-top: 10px;
+    margin-right: 14px;
+    padding: 22px;
+    min-width: 380px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 68, 0.25);
+
+    box.qs-header-card {
+      box.qs-avatar-wrapper {
+        background: rgba(255, 45, 68, 0.2);
+        border: 1px solid rgba(255, 45, 68, 0.5);
+        border-radius: 50%;
+        padding: 6px;
+      }
+      label.qs-user-name {
+        font-size: 17px;
+        font-weight: 800;
+        color: #ffffff;
+      }
+      label.qs-host-subtitle {
+        font-size: 12px;
+        font-weight: 600;
+        color: #FF2D44;
+      }
+      label.qs-uptime-label {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      button.qs-close-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        border-radius: 50%;
+        min-width: 32px;
+        min-height: 32px;
+        color: #ffffff;
+        font-size: 14px;
+        transition: all 150ms ease-in-out;
+        &:hover {
+          background: #FF2D44;
+          box-shadow: 0 0 12px rgba(255, 45, 68, 0.6);
+        }
+      }
+    }
+
+    box.qs-divider {
+      min-height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 45, 68, 0.35), transparent);
+      margin: 4px 0;
+    }
+
+    box.qs-sliders-box {
+      button.qs-slider-icon-btn {
+        background: transparent;
+        border: none;
+        padding: 4px;
+        color: #ffffff;
+        &:hover {
+          color: #FF2D44;
+        }
+      }
+      icon.qs-slider-icon {
+        color: #ffffff;
+      }
+      slider.qs-slider {
+        min-height: 24px;
+        trough {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          min-height: 8px;
+        }
+        highlight {
+          background: linear-gradient(90deg, #FF2D44, #FF5E73);
+          border-radius: 12px;
+        }
+        slider {
+          background: #ffffff;
+          border-radius: 50%;
+          min-width: 18px;
+          min-height: 18px;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        }
+      }
+      label.qs-slider-val {
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffffff;
+        min-width: 44px;
+      }
+    }
+
+    button.qs-toggle-tile {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 14px;
+      transition: all 180ms ease-in-out;
+
+      label.qs-tile-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+      label.qs-tile-sub {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      &.active {
+        background: rgba(255, 45, 68, 0.18);
+        border-color: rgba(255, 45, 68, 0.45);
+      }
+      &.inactive {
+        background: rgba(255, 255, 255, 0.03);
+        opacity: 0.7;
+      }
+
+      &:hover {
+        background: rgba(255, 45, 68, 0.3);
+        border-color: #FF2D44;
+        box-shadow: 0 0 16px rgba(255, 45, 68, 0.4);
+      }
+    }
+
+    label.qs-power-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    box.qs-power-grid {
+      button.qs-power-tile {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 12px 4px;
+        transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+        label.qs-power-name {
+          font-size: 11px;
+          font-weight: 700;
+          color: #ffffff;
+        }
+
+        &:hover {
+          border-color: rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
+        }
+
+        &.lock:hover {
+          background: rgba(78, 164, 246, 0.35);
+          border-color: #4EA4F6;
+          box-shadow: 0 0 16px rgba(78, 164, 246, 0.5);
+        }
+        &.suspend:hover {
+          background: rgba(147, 51, 234, 0.35);
+          border-color: #9333EA;
+          box-shadow: 0 0 16px rgba(147, 51, 234, 0.5);
+        }
+        &.exit:hover {
+          background: rgba(234, 179, 8, 0.35);
+          border-color: #EAB308;
+          box-shadow: 0 0 16px rgba(234, 179, 8, 0.5);
+        }
+        &.reboot:hover {
+          background: rgba(249, 115, 22, 0.35);
+          border-color: #F97316;
+          box-shadow: 0 0 16px rgba(249, 115, 22, 0.5);
+        }
+        &.shutdown:hover {
+          background: #FF2D44;
+          border-color: #FF2D44;
+          box-shadow: 0 0 24px rgba(255, 45, 68, 0.8);
+        }
+      }
+    }
+  }
+}
+
+
